@@ -138,11 +138,11 @@ let arr4 = [2,17,13,6,22,31,45,66,100,-18]
 
 // - Створити масив з 10 числових елементів. Вивести в консоль всі його елементи в циклі.
 
-const arr5 = [1,3,4,1,2, 1,3,4,1,2]
-
-for (let i = 0; i < arr5.length; i++) {
-    console.log(arr5[i]);
-}
+// const arr5 = [1,3,4,1,2, 1,3,4,1,2]
+//
+// for (let i = 0; i < arr5.length; i++) {
+//     console.log(arr5[i]);
+// }
 
 
 
@@ -247,46 +247,117 @@ while (n < arr7.length ){
 //         document.write(x)
 //     }
 // }
-
-
-// стоврити масив книжок (назва, кількість сторінок, автори , жанри).
-// -знайти наібльшу книжку. +
-// - знайти книжку/ки з найбільшою кількістю жанрів
-// - знайти книжку/ки з найдовшою назвою
-// - знайти книжку/ки які писали 2 автори
-// - знайти книжку/ки які писав 1 автор
+console.log('=============================================')
 
 let books =[
     {
-        name: 'asdqwe121',
+        name: 'Book111',
         title: 123,
         autor: ['artur', 'alex'],
-        genres: ['horror', 'detective']
-    },
-    {
-        name: 'asd',
-        title: 1233,
-        autor: 'artur',
-        genres: 'horror'
-    },
-    {
-        name: 'asdkj',
-        title: 5,
-        autor: ['artur', 'pasha', 'nastya'],
         genres: ['horror', 'comedy', 'detective']
+    },
+    {
+        name: 'Book22',
+        title: 1233,
+        autor: ['artur'],
+        genres: ['horror']
+    },
+    {
+        name: 'Book3',
+        title: 54,
+        autor: ['artur', 'pasha', 'nastya'],
+        genres: ['horror', 'detective']
     }
 ]
-let result = books[0]
-// for (const book of books) {
-//     if (book.title > result.title){
-//         result = book
+
+// стоврити масив книжок (назва, кількість сторінок, автори , жанри).
+// -знайти наібльшу книжку. +
+
+// let result= 0
+// let object = []
+// for (let a = 0; a < books.length; a++) {
+//  object = books[a]
+//     if(result < object.title) {
+//         result = object.title
 //     }
 // }
-// console.log(result)
+// for (let b = 0; b < books.length; b++) {
+//     object = books[b]
+//     if(result === object.title){
+//         console.log(`Самая большая книга: ${object.name}`)
+//     }
+// }
 
-for (const book of books) {
-    if(book.genres[] < result.genres[]){
-        result = book
+// - знайти книжку/ки з найбільшою кількістю жанрів +
+
+// let maxNumber = 0
+// let number = 0
+// let arrNumberBook = []
+// let arrBook = []
+
+// for (const book of books) {
+//     number = book.genres.length
+//     arrNumberBook[arrNumberBook.length] = number
+//     arrBook[arrBook.length] = book
+// }
+// for (let n = 0; n < arrNumberBook.length; n++) {
+//     if(maxNumber < arrNumberBook[n]){
+//         maxNumber = arrNumberBook[n]
+//     }
+// }
+//
+// for (let q = 0; q < arrBook.length; q++) {
+//     let object = arrBook[q]
+//     if(maxNumber === object.genres.length){
+//         console.log(`Книга в которой больше всего жанров: ${object.name}`)
+//     }
+// }
+
+// - знайти книжку/ки з найдовшою назвою
+
+// let object = []
+// let maxName = 0
+//
+// for (let i = 0; i < books.length; i++) {
+//     object = books[i]
+//     if(maxName < object.name.length){
+//         maxName = object.name.length
+//     }
+// }
+// console.log(maxName)
+// for (let i = 0; i < books.length; i++) {
+//     object = books[i]
+//     if(maxName === object.name.length){
+//         console.log(`Книга c cамым большим именем: ${object.name}`)
+//     }
+// }
+
+
+
+
+// - знайти книжку/ки які писали 2 автори
+
+// let object = []
+//
+// for (let i = 0; i < books.length; i++) {
+//     object = books[i]
+//         if(object.autor.length === 2){
+//             console.log(`Книга в которой два автора: ${object.name}`)
+//         }
+// }
+
+
+// - знайти книжку/ки які писав 1 автор
+
+let object = []
+
+for (let i = 0; i < books.length; i++) {
+    object = books[i]
+    if(object.autor.length === 1){
+        console.log(`Книга в которой один автора: ${object.name}`)
     }
+
 }
-console.log(result)
+
+
+
