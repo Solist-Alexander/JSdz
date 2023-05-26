@@ -14,7 +14,14 @@
 //         console.error("Error")
 //     }
 // }
-// minNumber(43, 43, 4)
+//
+//
+// minNumber(43, 5, 4)
+
+
+
+
+
 
 
 
@@ -157,23 +164,51 @@
 let arr1 =  [1,0,6,0,3]
 let arr2 =  [0,1,2,3,4]
 let arr3 = [0,0,1,0]
+//
+// let swap = (array) => {
+//     let zero = 0
+//     let num2 = 0
+//     for (let i = 0; i < array.length; i++) {
+//         if(array[i] === zero && array.length > i + 1){
+//             array[i] = array[i + 1]
+//            array[i + 1] = zero
+//         }                                                 //не знаю как, но работает. скорее всего  костыль, но я что                                                  то не совсем понимаю как можно написать этот код нормально
+//     }
+//     for (let i = 0; i < array.length; i++) {
+  //         if(array[i] === zero && array.length > i + 1){
+//             array[i] = array[i + 1]
+//             array[i + 1] = zero
+//         }
+//     }
+//     console.log(array)
+// }
+// swap(arr1)
+// swap(arr2)
+// swap(arr3)
 
-let swap = (array) => {
-    let zero = 0
-    let num2 = 0
+let swap = (array) =>{
+    let arrForNum = []
+    let arrForZero = []
+    let zeroEnd = []
     for (let i = 0; i < array.length; i++) {
-        if(array[i] === zero && array.length > i + 1){
-            array[i] = array[i + 1]
-           array[i + 1] = zero
-        }                                                 //не знаю как, но работает. скорее всего  костыль, но я что                                                  то не совсем понимаю как можно написать этот код нормально
+            if(array[i] !== 0){
+                arrForNum.push(array[i])
+            }
+            if(array[i] === 0){
+                arrForZero.push(array[i])
+            }
+
     }
-    for (let i = 0; i < array.length; i++) {
-        if(array[i] === zero && array.length > i + 1){
-            array[i] = array[i + 1]
-            array[i + 1] = zero
-        }
+    for (const arrForNumElement of arrForNum) {
+        zeroEnd.push(arrForNumElement)
     }
-    console.log(array)
+
+    for (const arrForZeroElement of arrForZero) {
+        zeroEnd.push(arrForZeroElement)
+    }
+    console.log(zeroEnd)
+    return zeroEnd
+
 }
 swap(arr1)
 swap(arr2)
