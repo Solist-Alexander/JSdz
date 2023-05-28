@@ -360,4 +360,4 @@ let findDocker = coursesArray.reduce((accumulator, courses) =>{
     }
 return accumulator
 }, {courses:[]})
-console.log(findDocker)
+console.log(findDocker) 
