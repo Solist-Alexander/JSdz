@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+
+<script>
+
+    let bd3 = (localStorage.getItem('sessions'))
+      bd3 = bd3.split(',')
+    console.log(bd3)
+
+    for (const date of bd3) {
+       let str = date.replace('["', "")
+                     .replace(/"/g, '')
+        let h3 = document.createElement('h3')
+
+        h3.innerText = str
+        document.body.appendChild(h3)
+    }
+</script>
+</body>
+</html>

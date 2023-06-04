@@ -220,8 +220,8 @@ car.prototype.addDriver = function (car, nameDriver, sureNameDriver, ageDriver, 
     car.driver = {}
     car.driver.name =  nameDriver
     car.driver.sureName = sureNameDriver
-        car.driver.age = ageDriver
-        car.driver.experience = experienceDriver
+    car.driver.age = ageDriver
+    car.driver.experience = experienceDriver
     console.log(car)
 }
 car.prototype.addDriver(car1, 'aboba', 'giga', 21, 7 )
