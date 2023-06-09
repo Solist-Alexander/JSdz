@@ -50,6 +50,7 @@ localStorage.getItem('sessions', JSON.stringify(sessions))
 // При натисканні prev виводяться попередні 10 об'єктів
 //
 let arr4 = []
+ let  arrI4 = 0
 for (let i = 1; i <= 100; i++) {
     arr4.push({name: 'name' + ' '+ i, id: i })
 }
@@ -65,62 +66,67 @@ document.body.append(buttonPrev, buttonNext)
 document.onreadystatechange = function (){
     for (const obj of arr4) {
         if(obj.id <= 10 && document.readyState === 'complete') {
+            arrI4++
             let br4 = document.createElement('br')
             let text4 = document.createElement('span')
             text4.innerText =  `${obj.name} - ${obj.id}`
             text4.classList.add('text4')
             document.body.append(br4, text4)
-
         }
-    }
-}
 
+    }
+
+}
 
 
 
 buttonNext.onclick = function (ev){
     let next = document.getElementsByClassName('text4').length
 
-    for (let i = next; i < next + 10; i++) {
+    for (let i = arrI4  ; i < arrI4 + 10; i++) {
+
         let br4 = document.createElement('br')
         let text4 = document.createElement('span')
         text4.innerText =  `${arr4[i].name} - ${arr4[i].id}`
         text4.classList.add('text4')
         document.body.append(br4, text4)
     }
+    arrI4 += 10
 }
-// не смог придумать
 buttonPrev.onclick = function (ev){
 
-    let Prev = document.getElementsByClassName('text4').length
-    for (let i = Prev - 2 ; i >= Prev - 10 ; i--) {
+    let Prev = document.getElementsByClassName('text4')
+    for (let i = arrI4 - 2 ; i >= arrI4 - 11 ; i--) {
         let br4 = document.createElement('br')
         let text4 = document.createElement('span')
         text4.innerText =  `${arr4[i].name} - ${arr4[i].id}`
         text4.classList.add('text4')
         document.body.append(br4, text4)
-    }}
+
+    }
+    arrI4 -= 10
+}
 //
 //
 // - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".
-// let button5 = document.createElement('button')
-// button5.innerText = 'кнопка яка вдаляэ елемент'
-// document.body.append(button5)
-//
-// button5.onclick = function () {
-//     document.getElementById('text5').remove()
-// }
-//
+let button5 = document.createElement('button')
+button5.innerText = 'кнопка яка вдаляэ елемент'
+document.body.append(button5)
+
+button5.onclick = function () {
+    document.getElementById('text5').remove()
+}
+
 //     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
-// button6.onclick = function (ev) {
-//     ev.preventDefault()
-//     console.log('asd')
-//     if(parseInt(input6.value) < 18 && !isNaN(parseInt(input6.value))){
-//         alert('вам меньше 18')
-//     }
-//
-// }
-//
+button6.onclick = function (ev) {
+    ev.preventDefault()
+    console.log('asd')
+    if(parseInt(input6.value) < 18 && !isNaN(parseInt(input6.value))){
+        alert('вам меньше 18')
+    }
+
+}
+
 // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
@@ -174,63 +180,13 @@ buttonPrev.onclick = function (ev){
 // }
 
 
-// *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
-// при перезавантаженні сторінки до значаення додається по 10грн, але !!!
-//     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
-//     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
-
-
-//
-
-
-let div8 = document.getElementById('div8')
-let nowDate8 = localStorage.getItem('nowDate8')
-let lastTime8 = localStorage.getItem('lastTime')
-
-if(nowDate8 === null){
-    nowDate8 = new Date().toLocaleString()
-}
-console.log(nowDate8)
-
-
-// let div8 = document.getElementById('div8')
-//   let nowDate8 = localStorage.getItem('hundred')
-//  let lastTime8 = localStorage.getItem('lastTime')
-//  let updateValue = function (){
-// if(lastTime8 === null){
-//     lastTime = new Date(lastTime8)
-//
-//     let difference = Math.floor(nowDate8 - lastTime) / 1000
-//
-//     if(difference >= 10) {
-//     let value = localStorage.getItem('value')
-//     if(!value){
-//         value = 100
-//     }
-//     value += 10
-//         localStorage.setItem('value', value)
-//         localStorage.setItem('lastTime', nowDate8)
-//
-//
-//
-//     } else{
-//         localStorage.setItem('value', 0)
-//         localStorage.setItem('lastTime', nowDate8)
-//     }
-//
-//     const value = localStorage.getItem('value');
-//     div8.innerText = value
-// }
-//     updateValue();
-// }
 
 
 
 
-// if(nowDate8 === null){
-//     nowDate8 = 100
-// }else{
-//     divGet = +divGet + 10
-// }
-// div8.innerText  = divGet + 'грн'
-// localStorage.setItem('hundred', divGet)
+
+
+
+
+
+

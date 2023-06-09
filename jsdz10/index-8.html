@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    #div8{
+      height: 80px;
+      width: 180px;
+      border: 2px solid #41737e;
+      font-size: 40px;
+      line-height: 80px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+
+<div id="div8"></div>
+<script >
+
+  // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
+  // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+  //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
+  //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+
+
+  //
+  let presentData8 = (new Date).getTime()
+
+  localStorage.setItem('present_Data', JSON.stringify(presentData8));
+  let div8 = document.getElementById('div8')
+
+
+  let variable8 = localStorage.getItem('variable8') || 100
+
+  div8.innerText = variable8
+
+  let lastTime = localStorage.getItem('last_Time')
+  if (lastTime === null) {
+    lastTime = presentData8
+    localStorage.setItem('last_Time', lastTime);
+  }
+
+
+let difference = Math.floor((presentData8 - lastTime) / 1000);
+
+
+  if(difference >= 10){
+      lastTime = JSON.parse(localStorage.getItem('variable8'))
+      variable8 = +variable8 + 10
+      localStorage.setItem('variable8', (variable8));
+
+      lastTime = localStorage.getItem('last_Time')
+      lastTime = presentData8
+      localStorage.setItem('last_Time', lastTime);
+  }
+  console.log(difference)
+
+
+</script>
+</body>
+</html>
