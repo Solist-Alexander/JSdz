@@ -7,16 +7,24 @@
 
 
 
-
-
   let url = new URL(window.location.href)
-let split1 = url.pathname.split('/')
-let fileName = (split1[split1.length-1])
-//
-// console.log(url)
-// console.log(split1)
-// console.log(fileName)
+  let split1 = url.pathname.split('/')
+  let fileName = (split1[split1.length-1])
+  let ID = new URL(document.URL).searchParams.get('id')
+
+let aboba = function iterateObject(obj) {
+    for (const key in obj) {
+        if (Array.isArray(obj[key])) {
+            iterateArray(obj[key]);
+        } else {
+            console.log(obj[key]);
+        }
+    }
+};
+
+
 if(fileName === 'index.html'){
+
     fetch('http://jsonplaceholder.typicode.com/users')
         .then(aboba => aboba.json())
         .then(arr =>{
@@ -36,8 +44,7 @@ if(fileName === 'index.html'){
                 let p = document.createElement('p')
 
                 for (const arrElement in arr[i]) {
-                    linkBtn.setAttribute('href', `user-details.html`)
-                    // linkBtn.setAttribute('href', `user-details.html?id=${i + 1}`)
+                    linkBtn.setAttribute('href', `user-details.html?id=${i + 1}`)
                     p.innerText =  `ID: ${arr[i].id} 
         Name: ${arr[i].name}`
                     div.append(p)
@@ -46,24 +53,37 @@ if(fileName === 'index.html'){
             } })
 }
 
-if(fileName === 'user-details.html'){
+if (fileName === 'user-details.html') {
+    fetch(`https://jsonplaceholder.typicode.com/users/${ID}`)
+        .then(response => response = response.json())
+        .then(user => {
+         let {name, username, id, email, address, company, phone, website} = user
+          let div = document.createElement('div')
+            let h3 = document.createElement('h3')
+            let h3Company = document.createElement('h3')
+            let h2 = document.createElement('h2')
+            let h2Company = document.createElement('h2')
+            let h1 = document.createElement('h1')
 
-    console.log('asdasd')
+            h1.innerText = `Name: ${name} 
+             Username: ${username}`
+            h2.innerText = `ID: ${id} 
+            Website: ${website}
+            Email: ${email}
+            Phone: ${phone}
+            
+            Adress: 
+            `
+            h3.innerText = `${Object.entries(address).map(([key, value]) => `${key}: ${typeof value === 'object' ? Object.values(value) : value}`).join(' | ')}`;
+            // h3.innerText = `${Object.values(address).map(value => typeof value === 'object' ? Object.values(value) : value).join(', | ')}`;
+            h2Company.innerText = `Company: `
+
+            h3Company.innerText = `${Object.entries(company).map(([key, value]) => `${key}: ${typeof value === 'object' ? Object.values(value) : value}`).join(' | ')}`;
+            document.body.append(h1, h2, h3, h2Company,h3Company)
+            console.log(user)
+        })
+
 }
-
-
-     // .then(() =>{
-     //     const btns = document.querySelectorAll('.btnClass')
-     //     btns.forEach(item => {
-     //         item.addEventListener('click', function (e) {
-     //             const target = e.target
-     //             const data = target.closest('.linkBtn')
-     //             console.log(data.href)
-     //         })
-     //     })
-     // })
-// window.location.href = 'user-details.html';
-
 
 
 
