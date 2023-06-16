@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: #f0f0f0;
+        }
+        .li_user{
+            list-style-type: none;
+            font-size: 20px;
+        }
+        .divAllPost{
+            border: 2px solid red;
+            background: white;
+        }
+.divComments{
+    margin-top: 50px;
+    background: white;
+
+    border: 2px solid red;
+}
+.main_comments_post{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+        .divComments, .divAllPost {
+            position:relative;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+        }
+        .divComments:before, .divComments:after, .divAllPost:before, .divAllPost:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            top: 50%;
+            bottom: 0;
+            left: 30px;
+            right: 30px;
+            border-radius:30%;
+        }
+    </style>
+</head>
+<body>
+<h1>User Post</h1>
+
+
+
+
+<script src="main.js"></script>
+</body>
+</html>

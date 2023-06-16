@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *,
+        *:before,
+        *:after{
+            box-sizing: border-box;
+        }
+        body{
+            background: #f0f0f0;
+        }
+        .li_user{
+          list-style-type: none;
+
+        }
+        .block_info_user{
+            border: 2px solid red;
+            text-align: center;
+            background: white;
+        }
+
+        .block_info_user, .btnInfoPost{
+            position:relative;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+        }
+        .block_info_user:before, .block_info_user:after
+        {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            top: 50%;
+            bottom: 0;
+            left: 30px;
+            right: 30px;
+            border-radius:30%;
+        }
+
+        .div_info_user{
+            text-align: left;
+            font-size: 20px;
+        }
+        .btnPost{
+            width: 90%;
+        }
+        h1{
+            text-align: center;
+        }
+        .divPost{
+            border: 2px solid red;
+            width: 400px;
+            height: 100px;
+            margin-top: 40px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            background: white;
+        }
+
+        .divPost
+        {
+            position:relative;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 30px rgba(0, 0, 0, 0.1) inset;
+        }
+        .divPost:before, .divPost:after
+        {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            box-shadow: 0 0 30px rgba(0,0,0,0.4);
+            top: 50%;
+            bottom: 0;
+            left: 30px;
+            right: 30px;
+            border-radius:30%;
+        }
+
+        .main_div_post{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin-left:200px;
+            position: relative;
+            text-align: center;
+        }
+        .btnInfoPost{
+           border-radius: 10px;
+            border: 2px solid grey;
+            height: 30px;
+            width: 150px;
+            position: absolute;
+            bottom: -18px;
+            left: 125px;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+<h1>User Info</h1>
+
+
+<script src="main.js"></script>
+</body>
+</html>
